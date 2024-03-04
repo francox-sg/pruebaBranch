@@ -1,11 +1,26 @@
 import Contador from './components/contador/contador'
+import Componente from './components/Componente/Componente';
+import { useState, useEffect } from 'react';
 import './App.css'
 
 function App() {
-  console.log("renderApp");
+  
+  const [show, setShow] = useState(false);
+
+/*   useEffect( ()=>{
+    setShow(show => show ? false : true)
+  }, [] ) */
+
+  const toggle = ()=>{
+    setShow(show => show ? false : true)
+  }
 
   return (
-    <Contador/>
+    <>
+      <button onClick={toggle}>Mostrar</button>
+      {show ? <Componente/>: null}
+    </>
+
     )
 }
 
